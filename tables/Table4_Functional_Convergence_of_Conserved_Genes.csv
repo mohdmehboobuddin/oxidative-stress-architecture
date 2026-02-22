@@ -1,0 +1,13 @@
+Term,Description,Gene_Count,Genes,Adjusted_P_Value,Category
+Response To Peptide Hormone (GO:0043434),Response To Peptide Hormone (0043434),2,STAT2;SLC2A1,0.0568276331592059,Oxidative Stress Response
+Positive Regulation Of Mitotic Cell Cycle Phase Transition (GO:1901992),Positive Regulation Of Mitotic Cell Cycle Phase Transition (1901992),2,BRD4;EIF4G1,0.0568276331592059,Cellular Homeostasis
+Regulation Of G1/S Transition Of Mitotic Cell Cycle (GO:2000045),Regulation Of G1/S Transition Of Mitotic Cell Cycle (2000045),2,SMARCA4;EIF4G1,0.0568276331592059,Cellular Homeostasis
+Regulation Of Wnt Signaling Pathway (GO:0030111),Regulation Of Wnt Signaling Pathway (0030111),2,ITGA3;SMARCA4,0.0568276331592059,Cellular Homeostasis
+Cap-Dependent Translational Initiation (GO:0002191),Cap-Dependent Translational Initiation (0002191),1,EIF4G1,0.0568276331592059,Cellular Homeostasis
+Regulation Of Protein Depolymerization (GO:1901879),Regulation Of Protein Depolymerization (1901879),1,WDR1,0.0568276331592059,Cellular Homeostasis
+Phosphatidylinositol Acyl-Chain Remodeling (GO:0036149),Phosphatidylinositol Acyl-Chain Remodeling (0036149),1,MBOAT7,0.0568276331592059,Cellular Homeostasis
+L-ascorbic Acid Metabolic Process (GO:0019852),L-ascorbic Acid Metabolic Process (0019852),1,SLC2A1,0.0568276331592059,Metabolic Regulation
+Transmembrane Receptor Protein Tyrosine Phosphatase Signaling Pathway (GO:0007185),Transmembrane Receptor Protein Tyrosine Phosphatase Signaling Pathway (0007185),1,PTPRF,0.0568276331592059,Cellular Homeostasis
+Regulation Of Translation In Response To Endoplasmic Reticulum Stress (GO:0036490),Regulation Of Translation In Response To Endoplasmic Reticulum Stress (0036490),1,EIF4G1,0.0568276331592059,Oxidative Stress Response
+Positive Regulation Of Translation In Response To Stress (GO:0032056),Positive Regulation Of Translation In Response To Stress (0032056),1,EIF4G1,0.0568276331592059,Oxidative Stress Response
+Positive Regulation Of mRNA Binding (GO:1902416),Positive Regulation Of mRNA Binding (1902416),1,EIF4G1,0.0568276331592059,Cellular Homeostasis

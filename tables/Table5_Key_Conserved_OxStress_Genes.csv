@@ -1,0 +1,13 @@
+Gene,ARPE-19_log2FC,iPSC-RPE_log2FC,Direction_Consistency,Functional_Role,Evidence_Level
+BRD4,1.460871444444444,inf,Concordant,Transcriptional regulation and oxidative stress signaling,Transcriptomic + Functional
+EIF4G1,1.3608122222222212,inf,Concordant,Cap-dependent translation during stress adaptation,Transcriptomic + Functional
+ITGA3,1.1423637777777775,inf,Concordant,Cell adhesion and epithelial integrity,Transcriptomic + Functional
+SMARCA4,0.9111668888888893,inf,Concordant,Chromatin remodeling under oxidative stress,Transcriptomic + Functional
+WDR1,0.8601749444444448,inf,Concordant,Actin cytoskeleton dynamics during cellular stress,Transcriptomic + Functional
+LMNA,0.6009567142857135,inf,Concordant,Nuclear structure and stress-responsive chromatin organization,Transcriptomic + Functional
+STAT2,0.5857911333333335,inf,Concordant,Interferon and redox-linked transcriptional signaling,Transcriptomic + Functional
+MBOAT7,0.5461274444444453,inf,Concordant,Membrane lipid remodeling and redox balance,Transcriptomic + Functional
+NSD2,0.3882680833333338,inf,Concordant,Epigenetic regulation of stress-responsive genes,Transcriptomic + Functional
+PTPRF,1.0903768333333332,-1.910175828609693,Discordant,Receptor signaling and redox-sensitive phosphatase activity,Transcriptomic + Functional
+GANAB,0.9102576666666664,-1.3204301277837478,Discordant,Protein folding and ER stress regulation,Transcriptomic + Functional
+SLC2A1,0.688136777777777,-1.462668391794234,Discordant,Glucose transport and metabolic stress adaptation,Transcriptomic + Functional

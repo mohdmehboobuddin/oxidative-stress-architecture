@@ -1,0 +1,3 @@
+Dataset,Technology,Upregulated Genes,Downregulated Genes,Total DEGs
+GSE122270,Agilent Microarray (ARPE-19),2413,1968,4381
+GSE158909,Nuclear RNA-seq (iPSC-RPE),558,74,632

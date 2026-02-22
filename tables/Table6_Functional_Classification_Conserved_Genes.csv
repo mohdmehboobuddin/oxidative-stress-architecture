@@ -1,0 +1,13 @@
+Gene,Functional_Class,Primary_Cell_Compartment,Oxidative_Stress_Role,Conserved_Direction,Evidence_Support
+BRD4,Chromatin Regulator,Nuclear,Stress-responsive transcriptional regulation,Mixed,Transcriptomic + Functional
+EIF4G1,Translational Control,Cytoplasmic,Redox-sensitive control of protein synthesis,Mixed,Transcriptomic + Functional
+GANAB,Proteostasis,Endoplasmic Reticulum,Protein folding under oxidative stress,Down,Transcriptomic + Functional
+ITGA3,Cell Adhesion,Membrane,Epithelial integrity under stress,Down,Transcriptomic + Functional
+LMNA,Nuclear Architecture,Nuclear,Nuclear stability during oxidative damage,Up,Transcriptomic + Functional
+MBOAT7,Lipid Metabolism,Cytoplasmic,Membrane lipid remodeling in oxidative stress,Down,Transcriptomic + Functional
+NSD2,Epigenetic Regulator,Nuclear,Chromatin remodeling during stress response,Mixed,Transcriptomic + Functional
+PTPRF,Signal Transduction,Membrane,Redox-sensitive receptor signaling,Down,Transcriptomic + Functional
+SLC2A1,Metabolic Transport,Membrane,Glucose transport under oxidative demand,Down,Transcriptomic + Functional
+SMARCA4,Chromatin Remodeling,Nuclear,ATP-dependent transcriptional regulation,Mixed,Transcriptomic + Functional
+STAT2,Stress Signaling,Nuclear/Cytoplasmic,Interferon–redox signaling integration,Down,Transcriptomic + Functional
+WDR1,Cytoskeleton Dynamics,Cytoplasmic,Actin remodeling under oxidative stress,Mixed,Transcriptomic + Functional

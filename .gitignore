@@ -1,0 +1,26 @@
+kk# Virtual environment
+venv/
+
+# Raw GEO downloads
+*.gz
+*.soft
+GPL15207.txt
+*.rpkm
+validation_datasets/
+GSE158909_supplementary/
+GSE122270_family.soft.gz
+GSE158909_family.soft.gz
+
+# R session
+.RData
+.Rhistory
+
+# Raw data folders
+data/
+supplementary/
+
+# Temporary
+__pycache__/
+*.pyc
+*.log
+*.tmp
