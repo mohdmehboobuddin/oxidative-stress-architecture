@@ -6,9 +6,9 @@ This repository contains the complete computational framework supporting the man
 
 **“Conserved Chromatin-Centred Regulatory Architecture Defines Oxidative Stress Adaptation Across Human Cell Types.”**
 
-The study identifies a reproducible oxidative stress program across epithelial and endothelial systems using cross-dataset transcriptomic integration, enrichment analysis, transcription factor inference, and protein interaction network topology.
+The study identifies a reproducible oxidative stress program across epithelial and endothelial systems using cross-dataset transcriptomic integration, functional enrichment, transcription factor inference, and protein interaction network topology analysis.
 
-The findings suggest that oxidative stress adaptation is organised around a conserved chromatin-centred regulatory architecture rather than a fixed antioxidant gene signature.
+The findings support a model in which oxidative stress adaptation is organised around a conserved chromatin-centred regulatory architecture rather than a fixed antioxidant gene signature.
 
 ---
 
@@ -16,10 +16,10 @@ The findings suggest that oxidative stress adaptation is organised around a cons
 
 All datasets were obtained from the NCBI Gene Expression Omnibus (GEO).
 
-### Discovery
+### Discovery Dataset
 - ARPE-19 epithelial oxidative stress dataset
 
-### Validation
+### Validation Datasets
 - GSE299876 – ARPE-19 RNA-seq oxidative stress dataset
 - GSE208105 – Endothelial (HUVEC) oxidative stress dataset
 
@@ -31,21 +31,25 @@ Only publicly available data were used.
 
 oxidative-stress-architecture/
 
-- scripts/ → All analysis scripts  
-- figures/ → Figures 1–15 used in manuscript  
-- tables/ → Tables 1–6  
-- data_processed/ → Processed outputs and enrichment results  
-- gene_lists/ → Conserved genes and derived lists  
-- supplementary/ → Supplementary outputs  
+├── scripts/               # Analysis scripts  
+├── figures/               # Figures 1–15  
+├── tables/                # Tables 1–6  
+├── data_processed/        # Processed outputs and enrichment results  
+├── gene_lists/            # Conserved gene sets  
+├── supplementary/         # Supplementary outputs  
+├── requirements.txt  
+└── README.md  
 
 ---
 
-## Analysis Pipeline
+## Computational Workflow
+
+The analysis pipeline includes:
 
 1. Differential expression analysis (DESeq2 framework)
-2. Cross-dataset intersection to identify conserved genes
+2. Cross-dataset intersection for conserved gene identification
 3. Stringency-dependent robustness testing
-4. Gene ontology enrichment (Enrichr via gseapy)
+4. Gene Ontology enrichment (Enrichr via gseapy)
 5. Transcription factor enrichment (ChEA, ENCODE, TRRUST)
 6. STRING protein–protein interaction mapping
 7. Network centrality analysis (NetworkX)
@@ -80,21 +84,18 @@ These genes are enriched for chromatin regulation, transcriptional coordination,
 - Chromatin regulators (BRD4, SMARCA4, NSD2) function as central network hubs.
 - Direction-independent enrichment supports regulatory state transition.
 - The 12-gene core alone separates control vs stress samples (p ≈ 1 × 10⁻¹⁶).
-- A conserved oxidative stress score demonstrates predictive discrimination.
+- A conserved oxidative stress score demonstrates predictive discrimination across systems.
 
 ---
 
-## Reproducibility
+## Reproduction Guide
 
-All scripts required to reproduce figures and tables are located in:
+Example commands:
 
-scripts/
-
-Processed intermediate outputs are provided in:
-
-data_processed/
-
-The analysis is modular and reproducible.
+python scripts/validation_overlap_GSE299876.py  
+python scripts/analyze_network_centrality.py  
+python scripts/figure14_direction_independent_program.py  
+python scripts/figure15_predictive_power.py  
 
 ---
 
@@ -107,23 +108,30 @@ The analysis is modular and reproducible.
 - matplotlib
 - networkx
 - gseapy
+- scipy
+- seaborn
+
+Install dependencies:
+
+pip install -r requirements.txt
 
 ---
 
 ## Data Availability
 
-Raw data are publicly available through GEO:
+Raw data are publicly available via GEO:
+
 - GSE299876
 - GSE208105
 
-Processed outputs used in figure generation are included in this repository.
+Processed outputs used for figure generation are included in this repository.
 
 ---
 
 ## Author
 
 Mohd Mehboob Uddin  
-Independent Computational Redox Biology Research
+Independent computational systems biology research project.
 
 ---
 
