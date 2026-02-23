@@ -1,4 +1,4 @@
-kk# Virtual environment
+# Virtual environment
 venv/
 
 # Raw GEO downloads
@@ -6,8 +6,6 @@ venv/
 *.soft
 GPL15207.txt
 *.rpkm
-validation_datasets/
-GSE158909_supplementary/
 GSE122270_family.soft.gz
 GSE158909_family.soft.gz
 
@@ -15,12 +13,14 @@ GSE158909_family.soft.gz
 .RData
 .Rhistory
 
-# Raw data folders
-data/
-supplementary/
-
-# Temporary
+# Python cache
 __pycache__/
 *.pyc
+
+# Temporary files
 *.log
 *.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
