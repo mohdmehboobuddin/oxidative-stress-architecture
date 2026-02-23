@@ -17,5 +17,6 @@ plt.xlabel("-log10(p-value)")
 plt.title("Key Regulators of Conserved Oxidative Stress Architecture")
 plt.gca().invert_yaxis()
 plt.tight_layout()
-plt.savefig("Figure11_TF_Regulators.png",dpi=300)
+plt.savefig("figures/Figure9_Chromatin_Control_Modules.png", dpi=300)
+
 print("TF figure created")

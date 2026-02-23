@@ -28,6 +28,6 @@ plt.barh(list(scores.keys()),list(scores.values()))
 plt.xlabel("Number of Conserved Targets")
 plt.title("Regulatory Control of Conserved Oxidative Stress Architecture")
 plt.tight_layout()
-plt.savefig("Figure10_Regulatory_Enrichment.png",dpi=300)
+plt.savefig("figures/Figure8_Key_Regulator_Bar.png", dpi=300)
 
 print("Regulator figure created")

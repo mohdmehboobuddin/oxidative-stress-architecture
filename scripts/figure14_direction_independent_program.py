@@ -69,6 +69,5 @@ plt.title("Direction-Independent Program Enrichment")
 plt.legend()
 plt.tight_layout()
 
-plt.savefig("Figure14_Direction_Independent_Pathways.png", dpi=300)
+plt.savefig("figures/Figure10_Direction_Independent_Enrichment.png", dpi=300)
 
-print("Figure14 created")

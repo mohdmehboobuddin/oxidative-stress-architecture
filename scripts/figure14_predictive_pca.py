@@ -40,6 +40,6 @@ plt.xlabel("PC1")
 plt.ylabel("PC2")
 plt.title("Sample Separation Using Only Conserved Oxidative Stress Genes")
 plt.tight_layout()
-plt.savefig("Figure14_Predictive_PCA.png",dpi=300)
+plt.savefig("figures/Figure11_Core_Only_PCA.png", dpi=300)
 
 print("Predictive PCA figure created")

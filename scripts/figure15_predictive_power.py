@@ -53,6 +53,6 @@ plt.title("Predictive Power of Conserved Oxidative-Stress Core")
 plt.legend()
 plt.tight_layout()
 
-plt.savefig("Figure15_Predictive_Separation.png", dpi=300)
+plt.savefig("figures/Figure14_Predictive_Stress_Score.png", dpi=300)
 
 print("Figure15 created")
