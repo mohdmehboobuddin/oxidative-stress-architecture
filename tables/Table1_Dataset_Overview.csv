@@ -1,3 +1,0 @@
-Dataset Accession,Platform / Technology,Cell Type,Species,Oxidative Stress Agent,Concentration,Treatment Duration,Subcellular Resolution,Primary Analysis Used
-GSE122270,Agilent Microarray (GPL15207),ARPE-19 retinal pigment epithelial cells,Homo sapiens,Hydrogen peroxide (H2O2),200 µM,3 hours,Whole-cell transcriptome,Differential expression (log2FC, FDR)
-GSE158909,Illumina RNA-seq,iPSC-derived retinal pigment epithelium,Homo sapiens,Hydrogen peroxide (H2O2),200 µM,3 hours,Nuclear RNA,Differential expression (log2FC, adjusted p-value)
