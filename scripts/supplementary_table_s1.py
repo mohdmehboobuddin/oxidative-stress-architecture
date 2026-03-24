@@ -1,65 +1,60 @@
 import pandas as pd
 import numpy as np
-import os
 
-# -------------------------------------------------
-# Ensure supplementary directory exists
-# -------------------------------------------------
-os.makedirs("supplementary", exist_ok=True)
-
-# -------------------------------------------------
-# Load ARPE-19 microarray DEG data
-# -------------------------------------------------
+# ============================
+# ARPE-19 MICROARRAY
+# ============================
 arpe = pd.read_csv("DEG_gene_level.csv")
 
-# Check required columns
-required_arpe_cols = {"symbol", "log2FC", "FDR"}
-missing = required_arpe_cols - set(arpe.columns)
-if missing:
-    raise ValueError(f"Missing columns in DEG_gene_level.csv: {missing}")
+arpe_up = ((arpe["FDR"] < 0.05) & (arpe["log2FC"] > 0)).sum()
+arpe_down = ((arpe["FDR"] < 0.05) & (arpe["log2FC"] < 0)).sum()
 
-arpe_sup = arpe[["symbol", "log2FC", "FDR"]].copy()
-arpe_sup.rename(columns={
-    "symbol": "Gene",
-    "FDR": "Adjusted_P_Value"
-}, inplace=True)
-
-arpe_sup["Dataset"] = "GSE122270 (ARPE-19 Microarray)"
-
-# -------------------------------------------------
-# Load iPSC-RPE nuclear RNA-seq data
-# -------------------------------------------------
+# ============================
+# iPSC-RPE NUCLEAR RNA-seq
+# ============================
 nuc = pd.read_csv(
-    "GSE158909_supplementary/GSE158909_bxs-bxsh2o2_v29_nuc_DESeq_out_plusNAMES_CODING_GEO.txt",
+    "GSE158909_supplementary/"
+    "GSE158909_bxs-bxsh2o2_v29_nuc_DESeq_out_plusNAMES_CODING_GEO.txt",
     sep="\t"
 )
 
-# Compute log2FC safely
-nuc = nuc.dropna(subset=["foldChange"])
+# --- compute log2FC from foldChange ---
+if "foldChange" not in nuc.columns:
+    raise ValueError("foldChange column not found in RNA-seq file")
+
 nuc["log2FC"] = np.log2(nuc["foldChange"].replace(0, np.nan))
 
-nuc_sup = nuc[["GeneName", "log2FC"]].copy()
-nuc_sup.rename(columns={"GeneName": "Gene"}, inplace=True)
+# --- adjusted p-value ---
+if "padj" not in nuc.columns:
+    raise ValueError("padj column not found in RNA-seq file")
 
-# RNA-seq adjusted p-values not merged here (kept NA)
-nuc_sup["Adjusted_P_Value"] = np.nan
-nuc_sup["Dataset"] = "GSE158909 (iPSC-RPE Nuclear RNA-seq)"
+nuc_up = ((nuc["padj"] < 0.05) & (nuc["log2FC"] > 0)).sum()
+nuc_down = ((nuc["padj"] < 0.05) & (nuc["log2FC"] < 0)).sum()
 
-# -------------------------------------------------
-# Combine into Supplementary Table S1
-# -------------------------------------------------
-supp_table_s1 = pd.concat(
-    [arpe_sup, nuc_sup],
-    ignore_index=True
+# ============================
+# TABLE 2
+# ============================
+table2 = pd.DataFrame([
+    {
+        "Dataset": "GSE122270",
+        "Technology": "Agilent Microarray (ARPE-19)",
+        "Upregulated Genes": arpe_up,
+        "Downregulated Genes": arpe_down,
+        "Total DEGs": arpe_up + arpe_down
+    },
+    {
+        "Dataset": "GSE158909",
+        "Technology": "Nuclear RNA-seq (iPSC-RPE)",
+        "Upregulated Genes": nuc_up,
+        "Downregulated Genes": nuc_down,
+        "Total DEGs": nuc_up + nuc_down
+    }
+])
+
+table2.to_csv(
+    "Table2_Differential_Expression_Summary.csv",
+    index=False
 )
 
-# Save table
-output_file = "supplementary/Supplementary_Table_S1_Full_DEG_List.csv"
-supp_table_s1.to_csv(output_file, index=False)
-
-# -------------------------------------------------
-# Report
-# -------------------------------------------------
-print("✅ Supplementary Table S1 generated successfully")
-print("📄 Saved to:", output_file)
-print("📊 Rows × Columns:", supp_table_s1.shape)
+print("\n✅ Table 2 generated successfully:\n")
+print(table2)
