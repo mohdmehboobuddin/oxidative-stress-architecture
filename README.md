@@ -1,223 +1,136 @@
 # Conserved Chromatin-Centered Regulatory Architecture Underlies Oxidative Stress Adaptation
 
-This repository contains the complete computational workflow supporting the manuscript:
-
-**“A Conserved Chromatin-Centered Regulatory Architecture Underlies Oxidative Stress Adaptation Across Cellular Systems.”**
-
-The study integrates transcriptomic datasets across epithelial and endothelial systems to identify a conserved regulatory framework underlying oxidative stress adaptation.
-
----
+This repository contains the complete computational workflow used to integrate cross-model transcriptomic data and identify a conserved regulatory scaffold for oxidative stress adaptation.
 
 ## Project Overview
 
-Oxidative stress is traditionally defined as an imbalance between reactive oxygen species (ROS) and antioxidant defenses. However, transcriptomic studies of oxidative stress often exhibit substantial gene-level heterogeneity across experimental systems.
+Oxidative stress is traditionally defined as a biochemical imbalance between reactive oxygen species and antioxidant defenses. However, transcriptomic studies often produce highly heterogeneous gene-level results, making it difficult to identify consistent regulatory mechanisms.
 
-This study applies a systems biology framework to identify conserved regulatory architecture underlying oxidative stress responses.
+This study implements a systems-level computational framework to identify conserved transcriptional architecture across independent datasets.
 
-The computational pipeline integrates:
+The analytical strategy integrates:
+- Cross-model transcriptomic harmonization (epithelial and endothelial systems)
+- Stringency-dependent conserved gene identification
+- Direction-independent functional enrichment (Gene Ontology and Reactome)
+- Protein–protein interaction network analysis (centrality mapping)
+- Principal component-based predictive modeling of stress states
 
-• Cross-model transcriptomic integration  
-• Stringency-dependent conservation analysis  
-• Gene ontology and pathway enrichment  
-• Transcription factor regulatory inference  
-• Protein–protein interaction network topology  
-• Network centrality analysis  
-• Direction-independent functional enrichment  
-• Principal component-based predictive modeling  
-
-These analyses reveal a conserved chromatin-centered regulatory architecture underlying oxidative stress adaptation.
-
----
-
-## Conserved Oxidative Stress Gene Core
-
-A reproducible 12-gene conserved program was identified across independent datasets:
-
-BRD4  
-EIF4G1  
-GANAB  
-ITGA3  
-LMNA  
-MBOAT7  
-NSD2  
-PTPRF  
-SLC2A1  
-SMARCA4  
-STAT2  
-WDR1  
-
-Functional categorization:
-
-Chromatin regulation: BRD4, SMARCA4, NSD2  
-Signal integration: STAT2, PTPRF  
-Metabolic adaptation: SLC2A1, MBOAT7, GANAB  
-Structural and nuclear integrity: ITGA3, LMNA, WDR1, EIF4G1  
-
-Network analysis identifies BRD4 and SMARCA4 as dominant regulatory hubs.  
-Principal component analysis using the conserved core robustly separates oxidative stress and control states (p ≈ 1 × 10⁻¹⁶).
-
----
+Rather than focusing on classical antioxidant genes, this work identifies a compact regulatory core driven by chromatin-associated factors.
 
 ## Repository Structure
 
-```
 oxidative-stress-architecture/
-
-├── scripts/                     # Analysis scripts
-│
+├── data/
+├── data_processed/
 ├── results/
-│   ├── main_figures/            # Figures 1–6 (main manuscript)
-│   ├── main_tables/             # Tables 1–2 (main manuscript)
-│   ├── supplementary_figures/   # Supplementary Figures S1–S8
-│   └── supplementary_tables/    # Supplementary Tables S1–S7
-│
-├── data_processed/              # Processed outputs
-├── gene_lists/                  # Conserved gene sets
-│
-├── requirements.txt             # Python dependencies
+│   ├── main_figures/
+│   ├── main_tables/
+│   ├── supplementary_figures/
+│   └── supplementary_tables/
+├── scripts/
+├── gene_lists/
+├── requirements.txt
 └── README.md
-```
 
-All files in the `results/` directory correspond exactly to the numbering used in the manuscript.
+All figures and tables in the `results/` directory directly correspond to those presented in the manuscript.
 
----
+## Conserved Oxidative Stress Gene Core
 
-## Computational Workflow
+BRD4, EIF4G1, GANAB, ITGA3, LMNA, MBOAT7, NSD2, PTPRF, SLC2A1, SMARCA4, STAT2, WDR1
 
-The analysis pipeline consists of the following steps:
+Functional organization:
+- Chromatin and epigenetic regulation: BRD4, SMARCA4, NSD2
+- Signal integration: STAT2, PTPRF
+- Metabolic adaptation: SLC2A1, MBOAT7, GANAB
+- Structural and nuclear integrity: ITGA3, LMNA, WDR1, EIF4G1
 
-1. Differential expression analysis using DESeq2  
-2. Cross-dataset conservation intersection  
-3. Stringency-dependent robustness analysis  
-4. Gene ontology enrichment (Enrichr via gseapy)  
-5. Transcription factor enrichment (ChEA / ENCODE)  
-6. Protein–protein interaction mapping (STRING)  
-7. Network topology analysis (NetworkX)  
-8. Direction-independent enrichment analysis  
-9. Predictive oxidative stress scoring  
-
-**Note:** Differential expression analysis was performed using the DESeq2 statistical framework (R-based), and downstream analyses were performed in Python.
-
----
+Key finding:
+This 12-gene core alone separates oxidative stress and control samples with strong statistical significance (p ≈ 1 × 10⁻¹⁶), independent of fold-change direction.
 
 ## Data Sources
 
-All datasets were obtained from the NCBI Gene Expression Omnibus (GEO):
-
-GSE122270 — ARPE-19 oxidative stress microarray  
-GSE158909 — iPSC-derived RPE RNA-seq dataset  
-GSE299876 — ARPE-19 RNA-seq validation dataset  
-GSE208105 — HUVEC endothelial oxidative stress dataset  
-
-Raw sequencing data are hosted on GEO and are not included in this repository.
+All datasets are publicly available from the NCBI Gene Expression Omnibus (GEO):
+- GSE122270 — ARPE-19 microarray
+- GSE158909 — iPSC-derived RPE RNA-seq
+- GSE299876 — ARPE-19 RNA-seq
+- GSE208105 — HUVEC endothelial RNA-seq
 
 To reproduce the analysis:
+Download the required count matrices from GEO and place them in:
 
-Download the required count matrices from GEO and place them in a directory named:
-
-```
 data_raw/
-```
 
-before running the analysis scripts.
-
----
+Raw sequencing files are not included due to size constraints.
 
 ## Reproducing the Analysis
 
-This pipeline was developed and tested using **Python 3.9+**.
+This pipeline was developed and tested using:
+- Python 3.9+
+- R (DESeq2)
 
-Install dependencies:
+### Important note:
+Differential expression analysis was performed using DESeq2 in R.  
+All downstream analyses (network analysis, enrichment, and figure generation) were performed in Python.
 
-```
+### Execution workflow:
+
+Step 1 — Differential expression (R):
+scripts/01_deseq2_analysis.R
+
+Step 2 — Generate processed data:
+Outputs will be stored in data_processed/
+
+Step 3 — Generate figures and analyses (Python):
+python scripts/figure2_validation.py  
+python scripts/figure3_direction_independent.py  
+python scripts/figure4_pca_core.py  
+python scripts/figure5_network_analysis.py  
+python scripts/figure6_model.py  
+
+All scripts are designed to run independently once processed data is available.
+
+## Software Requirements
+
+Python libraries:
+pandas  
+numpy  
+matplotlib  
+networkx  
+gseapy  
+scipy  
+
+R packages:
+DESeq2  
+
+Install Python dependencies:
 pip install -r requirements.txt
-```
 
-### Execution order
+## Key Findings
 
-1. Perform differential expression analysis (DESeq2, R)
-2. Generate processed outputs (stored in `data_processed/`)
-3. Run figure scripts to reproduce results
+- Gene-level overlap across datasets is limited  
+- Functional convergence is conserved across systems  
+- Chromatin regulators act as dominant network hubs  
+- Oxidative stress responses are direction-independent  
+- A minimal gene set predicts stress state with high accuracy  
+- The response reflects a regulatory state transition rather than simple activation  
 
-Example commands:
+These findings support a model in which oxidative stress represents a coordinated transcriptional reorganization rather than a purely antioxidant-driven response.
 
-```
-python scripts/figure1_go_enrichment.py
-python scripts/figure2_endothelial_validation.py
-python scripts/figure3_direction_independent.py
-python scripts/figure4_pca_core.py
-```
-
----
-
-## Reproducibility Guide
-
-Each manuscript figure corresponds to a specific script:
-
-Main Figures:
-
-Figure 1 — scripts/figure1_go_enrichment.py  
-Figure 2 — scripts/figure2_endothelial_validation.py  
-Figure 3 — scripts/figure3_direction_independent.py  
-Figure 4 — scripts/figure4_pca_core.py  
-Figure 5 — scripts/figure5_string_network.py  
-Figure 6 — scripts/figure6_model.py  
-
-Supplementary Figures:
-
-Figure S1 — scripts/figureS1_volcano.py  
-Figure S2 — scripts/figureS2_global_pca.py  
-Figure S3 — scripts/figureS3_stringency.py  
-Figure S4 — scripts/figureS4_concordance.py  
-Figure S5 — scripts/figureS5_relaxed_enrichment.py  
-Figure S6 — scripts/figureS6_predictive_score.py  
-Figure S7 — scripts/figureS7_tf_enrichment.py  
-Figure S8 — scripts/figureS8_networks.py  
-
----
-
-## Manuscript Outputs
-
-Main manuscript:
-
-Tables  
-Table 1 — Dataset overview  
-Table 2 — Conserved oxidative stress gene list  
-
-Figures  
-Figure 1 — Gene ontology enrichment analysis  
-Figure 2 — Endothelial validation  
-Figure 3 — Direction-independent enrichment  
-Figure 4 — PCA using conserved gene core  
-Figure 5 — STRING interaction network  
-Figure 6 — Integrated regulatory model  
-
-Supplementary material:
-
-Tables S1–S7  
-Figures S1–S8  
-
----
-
-## Author
+## Authors
 
 Mohd Mehboob Uddin  
+Syed Mohd Zakariya Ali Khan  
+Sridhar Gunde  
+
 Department of Life Sciences  
 A.V. College of Arts, Science and Commerce  
-Osmania University  
-Hyderabad, Telangana, India  
-
----
+Osmania University, Hyderabad, India  
 
 ## Citation
 
 If you use this code or functional gene list in your research, please cite:
 
-Uddin, M.M. (2026).  
-*A Conserved Chromatin-Centered Regulatory Architecture Underlies Oxidative Stress Adaptation Across Cellular Systems.*  
-[Journal Name to be updated upon publication]  
-
----
+Uddin, M.M., Khan, S.M.Z.A., & Gunde, S. (2026). A Conserved Chromatin-Centered Regulatory Architecture Underlies Oxidative Stress Adaptation Across Cellular Systems. Frontiers in Genetics (under review). DOI: to be assigned.
 
 ## License
 
